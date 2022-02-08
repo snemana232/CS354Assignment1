@@ -79,9 +79,12 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
         std::cerr << "== current depth: " << depth << std::endl;
 #endif
 
+		//d = r.getDirection()
+		//
+
         if(scene->intersect(r, i)) {
                 // YOUR CODE HERE
-
+				
                 // An intersection occurred!  We've got work to do.  For now,
                 // this code gets the material for the surface that was intersected,
                 // and asks that material to provide a color for the ray.
@@ -90,9 +93,25 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                 // Instead of just returning the result of shade(), add some
                 // more steps: add in the contributions from reflected and refracted
                 // rays.
+				
+				//Q is intersection of r with the surface
+				glm::dvec Q = r.at(i.getT());
 
                 const Material& m = i.getMaterial();
                 colorC = m.shade(scene.get(), r, i);
+
+				//surface normal: 
+				//ray reflect(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
+				i.getN();
+
+				// if (N * r > 0) {
+				// 	traceRay(refleced)
+				// } else {
+				// 	traceRay(refract) {
+				// 		if (TIR )
+				// 	}
+				// }
+				
         } else {
                 // No intersection.  This ray travels to infinity, so we color
                 // it according to the background color, which in this (simple) case
@@ -216,10 +235,19 @@ void RayTracer::traceImage(int w, int h)
 {
         // Always call traceSetup before rendering anything.
         traceSetup(w,h);
-
         // YOUR CODE HERE
         // FIXME: Start one or more threads for ray tracing
         //
+		//glm::dvec3 col(10, 20, 30);
+		for (int i = 0; i < w; i++) {
+			for (int j = 0; j < h; j++) {
+				glm::dvec3 S = tracePixel(i, j);
+				// glm::dvec3 P = scene->getCamera().getEye(); //a parameter to traceRay()
+				// glm::dvec3 d;
+
+			}
+		}
+
         // TIPS: Ideally, the traceImage should be executed asynchronously,
         //       i.e. returns IMMEDIATELY after working threads are launched.
         //
