@@ -1,0 +1,5 @@
+/u/snemana/CS354/proj1/ray/build/CMakeFiles/rebuild_cache.dir
+/u/snemana/CS354/proj1/ray/build/CMakeFiles/edit_cache.dir
+/u/snemana/CS354/proj1/ray/build/src/CMakeFiles/rebuild_cache.dir
+/u/snemana/CS354/proj1/ray/build/src/CMakeFiles/ray.dir
+/u/snemana/CS354/proj1/ray/build/src/CMakeFiles/edit_cache.dir
