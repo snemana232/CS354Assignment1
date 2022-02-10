@@ -82,10 +82,7 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
 		//d = r.getDirection()
 		//
 
-        if(scene->intersect(r, i)) {
-                // YOUR CODE HERE
-				
-                // An intersection occurred!  We've got work to do.  For now,
+        if(scene->intersect(r, i)) {//r I and surface orurred!  We've got work to do.  For now,
                 // this code gets the material for the surface that was intersected,
                 // and asks that material to provide a color for the ray.
 
@@ -95,22 +92,47 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                 // rays.
 				
 				//Q is intersection of r with the surface
-				glm::dvec Q = r.at(i.getT());
+				glm::dvec3 Q = r.at(i.getT());
 
-                const Material& m = i.getMaterial();
-                colorC = m.shade(scene.get(), r, i);
+                                const Material& m = i.getMaterial();
+                                colorC = m.shade(scene.get(), r, i);
 
 				//surface normal: 
-				//ray reflect(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
-				i.getN();
 
-				// if (N * r > 0) {
-				// 	traceRay(refleced)
-				// } else {
-				// 	traceRay(refract) {
-				// 		if (TIR )
-				// 	}
-				// }
+                                //unit direction of r
+
+                                glm::dvec3 k_r = m.kr(i);
+                                //colorC = colorC + k_r * traceRay(r1, thresh, depth - 1, t);
+
+
+                                glm::dvec3 ref = glm::normalize((r.getDirection() - (2.0 * i.getN()) * (r.getDirection() * i.getN())));
+
+                                ray REF_RAY(Q,ref, glm::dvec3(1,1,1), ray::REFLECTION);
+                                colorC = colorC + k_r * traceRay(REF_RAY, thresh, depth - 1, t);
+
+                                double n_i = 0;
+                                double n_t = 0;
+                                double cosQ = glm::dot(i.getN() , r.getDirection());
+                                if (cosQ > 0) {//Refraction
+                                        n_i = 1.0;
+                                        n_t = m.index(i);
+                                } else { //reflection
+                                        n_t = 1.0;
+                                        n_i = m.index(i);
+                                }
+                                
+                                glm::dvec3 k_t = m.kt(i);
+
+                                if (k_t > 0 && !(n_i > n_t && vecType::value_type glm::angle(r.getDirection(), i.getN() ) > glm::asin(n_t / n_i))) {
+
+                                }
+
+
+                                //
+                                // (mtrl.k_t > 0 and notTIR (n_i, n_t, N, -d)) then
+                                // T = refractDirection (n_i, n_t, N, -d)
+                                //I ← I + mtrl.kt ∗ traceRay(scene, Q, T)
+		
 				
         } else {
                 // No intersection.  This ray travels to infinity, so we color
