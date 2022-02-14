@@ -45,7 +45,17 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// 		.
 	// 		.
 	// }
-	return kd(i);
+	glm::dvec3 colorC = ka(i) + kd(i)*scene->ambient();
+	std::vector<std::unique_ptr<Light>> lights = scene->getAllLights();
+
+	for (int i = 0; i < scene->getAllLights().size(); i++) {
+		Light l = scene->getAllLights()[i];
+		double attenuation = l.distanceAttenuation(r.at(i.getT()));
+		glm::dvec3 shadow = l.shadowAttenuation(r, r.getPosition());
+		
+
+	}
+	return colorC;
 }
 
 TextureMap::TextureMap(string filename)
