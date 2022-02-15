@@ -45,14 +45,14 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// 		.
 	// 		.
 	// }
-	glm::dvec3 colorC = ka(i) + kd(i)*scene->ambient();
-	std::vector<std::unique_ptr<Light>> lights = scene->getAllLights();
+	glm::dvec3 colorC = ke(i) + ka(i)*scene->ambient();
 
-	for (int i = 0; i < scene->getAllLights().size(); i++) {
-		Light l = scene->getAllLights()[i];
-		double attenuation = l.distanceAttenuation(r.at(i.getT()));
-		glm::dvec3 shadow = l.shadowAttenuation(r, r.getPosition());
-		
+
+		for ( const auto& pLight : scene->getAllLights())
+		{
+
+		glm::dvec3 attenuation = pLight->distanceAttenuation(r.at(i.getT())) * pLight->shadowAttenuation(r, r.at(i.getT()));
+		colorC += attenuation * (kd(i) + ks(i));
 
 	}
 	return colorC;

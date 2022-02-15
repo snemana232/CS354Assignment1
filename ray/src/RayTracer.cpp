@@ -107,8 +107,7 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                                 //unit direction of r
 
                                 glm::dvec3 k_r = m.kr(i);
-                                //colorC = colorC + k_r * traceRay(r1, thresh, depth - 1, t);
-                                //glm::dvec3 ref = glm::normalize((2 * glm::dot(colorC, i.getN() ) * i.getN() - colorC));
+                                
 
                                 glm::dvec3 ref = glm::reflect(r.getDirection(), i.getN());
                                 
@@ -134,6 +133,7 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                                 double cos_t = (1 - neta_sq* (1 - (cos_i*cos_i)));
                                 glm::dvec3 k_t = m.kt(i);
                                 if (k_t.x > 0 && k_t.y > 0 && k_t.z > 0 && cos_t > 0) {
+                                        //change this out with glm::refract
                                         glm::dvec3 refract = glm::normalize((neta * cos_i - sqrt(cos_t))* i.getN() - neta * r.getDirection()); 
                                         ray REFRACT(Q,refract, glm::dvec3(1,1,1), ray::REFRACTION);
                                         colorC = colorC + k_t * traceRay(REFRACT, thresh, depth - 1, t);
