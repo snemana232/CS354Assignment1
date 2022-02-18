@@ -96,6 +96,21 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	// YOUR CODE HERE
 	//
 	// FIXME: Add ray-trimesh intersection
+	this->ids[0];
+	double A_a = glm::length (glm::cross(this->vbc, r.at(i.getT()) - this->b_coords)) / 2.0;
+	double A_b = std::length (glm::cross(this->vac, r.at(i.getT()) - this->c_coords)) / 2.0;
+	double A_c = std::length (glm::cross(this->vab, r.at(i.getT()) - this->a_coords)) / 2.0;
+	double A = A_a + A_b + A_c;
+	double alpha = A_a / A;
+	double beta = A_b / A;
+	double gamma = A_c / A;
+	if (alpha >= 0 && bet >= 0 && gamma >= 0 && alpha + beta + gamma == 1) {
+		i.setUVCoordinates(alpha, beta);
+		i.setBary(alpha, beta, gamma);
+		i.setT(i.getT());
+		return true;
+	}
+
 
 	return false;
 }
