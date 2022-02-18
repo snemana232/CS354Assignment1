@@ -125,6 +125,8 @@ cmath
 -
 ../ui/TraceUI.h
 /u/snemana/CS354/proj1/ray/src/ui/TraceUI.h
+stdio.h
+-
 
 /u/snemana/CS354/proj1/ray/src/SceneObjects/trimesh.h
 list
