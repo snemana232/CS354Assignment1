@@ -45,8 +45,6 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// 		.
 	// 		.
 	// }
-
-	i.getUVCoordinates();
 	glm::dvec3 colorC = ke(i) + ka(i)*scene->ambient();
 
 		

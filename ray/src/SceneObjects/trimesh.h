@@ -103,6 +103,7 @@ public:
 		glm::dvec3 b_coords = parent->vertices[b];
 		glm::dvec3 c_coords = parent->vertices[c];
 
+		
 		glm::dvec3 vab = (b_coords - a_coords);
 		glm::dvec3 vac = (c_coords - a_coords);
 		glm::dvec3 vcb = (b_coords - c_coords);

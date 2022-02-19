@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cmath>
 #include "../ui/TraceUI.h"
+#include <stdio.h>
 extern TraceUI* traceUI;
 
 using namespace std;
@@ -96,18 +97,25 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	// YOUR CODE HERE
 	//
 	// FIXME: Add ray-trimesh intersection
-	this->ids[0];
-	double A_a = glm::length (glm::cross(this->vbc, r.at(i.getT()) - this->b_coords)) / 2.0;
-	double A_b = std::length (glm::cross(this->vac, r.at(i.getT()) - this->c_coords)) / 2.0;
-	double A_c = std::length (glm::cross(this->vab, r.at(i.getT()) - this->a_coords)) / 2.0;
+	
+	double d = glm::dot (i.getN(), parent->vertices[this->ids[2]]);
+
+	double t =  (-1.0 * (glm::dot(i.getN(), r.getPosition()) + d)) / glm::dot(i.getN(), r.getDirection()); 
+
+	glm::dvec3 Q = r.at(t);
+
+	double A_a = glm::length (glm::cross(parent->vertices[this->ids[2]] - parent->vertices[this->ids[1]], Q - parent->vertices[this->ids[1]])) / 2.0;
+	double A_b = glm::length (glm::cross(parent->vertices[this->ids[0]] - parent->vertices[this->ids[2]], Q - parent->vertices[this->ids[2]])) / 2.0;
+	double A_c = glm::length (glm::cross(parent->vertices[this->ids[1]] - parent->vertices[this->ids[0]], Q - parent->vertices[this->ids[0]])) / 2.0;
 	double A = A_a + A_b + A_c;
 	double alpha = A_a / A;
 	double beta = A_b / A;
 	double gamma = A_c / A;
-	if (alpha >= 0 && bet >= 0 && gamma >= 0 && alpha + beta + gamma == 1) {
-		i.setUVCoordinates(alpha, beta);
+	if (alpha >= 0 && beta >= 0 && gamma >= 0 && (alpha + beta + gamma == 1)) {
+		i.setMaterial(this->getMaterial());
+		i.setT(t);
+		i.setUVCoordinates(glm::dvec2(alpha, beta));
 		i.setBary(alpha, beta, gamma);
-		i.setT(i.getT());
 		return true;
 	}
 
