@@ -97,22 +97,53 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	// YOUR CODE HERE
 	//
 	// FIXME: Add ray-trimesh intersection
-	
-	double d = glm::dot (i.getN(), parent->vertices[this->ids[2]]);
+	glm::dvec3 a = parent->vertices[this->ids[0]];
+	glm::dvec3 b = parent->vertices[this->ids[1]];
+	glm::dvec3 c = parent->vertices[this->ids[2]];
 
-	double t =  (-1.0 * (glm::dot(i.getN(), r.getPosition()) + d)) / glm::dot(i.getN(), r.getDirection()); 
-
+	//find t
+	glm::dvec3 normal = glm::normalize(glm::cross(b - a, c - a));
+	double d = -1.0 * glm::dot (normal, a);
+	double t =  -1.0 * ((glm::dot(normal, r.getPosition()) + d) / glm::dot(normal, r.getDirection())); 
+	if (t <= RAY_EPSILON) {
+		return false;
+	}
 	glm::dvec3 Q = r.at(t);
 
-	double A_a = glm::length (glm::cross(parent->vertices[this->ids[2]] - parent->vertices[this->ids[1]], Q - parent->vertices[this->ids[1]])) / 2.0;
-	double A_b = glm::length (glm::cross(parent->vertices[this->ids[0]] - parent->vertices[this->ids[2]], Q - parent->vertices[this->ids[2]])) / 2.0;
-	double A_c = glm::length (glm::cross(parent->vertices[this->ids[1]] - parent->vertices[this->ids[0]], Q - parent->vertices[this->ids[0]])) / 2.0;
-	double A = A_a + A_b + A_c;
+	//Inside-Outside test
+	double i1 = glm::dot(glm::cross(b - a, Q - a), normal);
+	double i2 = glm::dot(glm::cross(c - b, Q - b), normal);
+	double i3 = glm::dot(glm::cross(a - c, Q - c), normal);
+	if (i1 < RAY_EPSILON || i2 < RAY_EPSILON || i3 < RAY_EPSILON) {
+		return false;
+	}
+	//Barycentric Coordinates/Interpolation
+	double A_a = glm::length (glm::cross(c - b, Q - b)) / 2.0;
+	double A_b = glm::length (glm::cross(a - c, Q - c)) / 2.0;
+	double A_c = glm::length (glm::cross(b - a, Q - a)) / 2.0;
+	double A = glm::length(glm::cross(b - a, c - a)) / 2.0;
 	double alpha = A_a / A;
 	double beta = A_b / A;
 	double gamma = A_c / A;
-	if (alpha >= 0 && beta >= 0 && gamma >= 0 && (alpha + beta + gamma == 1)) {
-		i.setMaterial(this->getMaterial());
+	if (alpha >= 0.0 && beta >= 0.0 && gamma >= 0.0 && (alpha + beta + gamma <= 1.0 + RAY_EPSILON) && (alpha + beta + gamma >= 1.0 - RAY_EPSILON)) {
+		i.setObject(this);
+		//Normal Interpolation
+		if (parent->vertNorms) {
+			i.setN(glm::normalize( alpha * parent->normals[ids[0]] + beta * parent->normals[ids[1]] + gamma * parent->normals[ids[2]]));
+		} else {
+			i.setN(normal);
+		}
+		//Material Interpolation
+		if (!parent->materials.empty()) {
+			Material m_0(alpha * *parent->materials[ids[0]]);
+			Material m_1(beta * *parent->materials[ids[1]]);
+			Material m_2(gamma * *parent->materials[ids[2]]);
+			m_0 += m_1;
+			m_0 += m_2;
+			i.setMaterial(m_0);
+		} else {
+			i.setMaterial(this->getMaterial());
+		}
 		i.setT(t);
 		i.setUVCoordinates(glm::dvec2(alpha, beta));
 		i.setBary(alpha, beta, gamma);

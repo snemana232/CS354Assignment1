@@ -87,65 +87,36 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                 // This is a great place to insert code for recursive ray tracing.
                 // Instead of just returning the result of shade(), add some
                 // more steps: add in the contributions from reflected and refracted
-                // rays.
-				
+                // rays.		
 				//Q is intersection of r with the surface
 				glm::dvec3 Q = r.at(i.getT());
-
                                 const Material& m = i.getMaterial();
                                 colorC = m.shade(scene.get(), r, i);
-
-                                
-
+                                //recursion check
                                 if (depth <= 0) {
                                         return colorC;
                                 }
-                                
-                                
-				//surface normal: 
-
-                                //unit direction of r
-
-                                glm::dvec3 k_r = m.kr(i);
-                                
-
-                                glm::dvec3 ref = glm::reflect(r.getDirection(), i.getN());
-                                
-
+                                //Calculate reflection unit vector and ray
+                                glm::dvec3 ref = glm::normalize(glm::reflect(r.getDirection(), i.getN()));
                                 ray REF_RAY(Q,ref, glm::dvec3(1,1,1), ray::REFLECTION);
+                                glm::dvec3 k_r = m.kr(i);
                                 colorC = colorC + k_r * traceRay(REF_RAY, thresh, depth - 1, t);
-
-                                
-
-                                double n_i = 0;
-                                double n_t = 0;
-                                double cos_i = glm::dot(i.getN() , -r.getDirection());
-                                if (cos_i > 0) {//Refraction
+                                double n_i;
+                                double n_t;
+                                if (glm::dot(-1.0 * r.getDirection(), i.getN()) > 0.0 ) {//entering object
                                         n_i = 1.0;
                                         n_t = m.index(i);
-                                } else { //reflection
-                                        n_t = 1.0;
+                                } else { //exiting object
                                         n_i = m.index(i);
+                                        n_t = 1.0;                                        
                                 }
-                                double neta = (n_t/n_i);
-                                double neta_sq = neta * neta;
-                                
-                                double cos_t = (1 - neta_sq* (1 - (cos_i*cos_i)));
-                                glm::dvec3 k_t = m.kt(i);
-                                if (k_t.x > 0 && k_t.y > 0 && k_t.z > 0 && cos_t > 0) {
-                                        //change this out with glm::refract
-                                        glm::dvec3 refract = glm::normalize((neta * cos_i - sqrt(cos_t))* i.getN() - neta * r.getDirection()); 
+                                double neta = (n_i/n_t);
+                                glm::dvec3 refract = glm::normalize(glm::refract(-1.0 * r.getDirection(), i.getN(), neta));
+                                glm::dvec3 zero(0.0, 0.0, 0.0);
+                                if (glm::greaterThan(m.kt(i), zero)[0] && !glm::all(glm::isnan(refract))) {
                                         ray REFRACT(Q,refract, glm::dvec3(1,1,1), ray::REFRACTION);
-                                        colorC = colorC + k_t * traceRay(REFRACT, thresh, depth - 1, t);
+                                        colorC += m.kt(i) * traceRay(REFRACT, thresh, depth - 1, t);
                                 }
-
-                                
-                                //
-                                // (mtrl.k_t > 0 and notTIR (n_i, n_t, N, -d)) then
-                                // T = refractDirection (n_i, n_t, N, -d)
-                                //I ← I + mtrl.kt ∗ traceRay(scene, Q, T)
-		
-				
         } else {
                 // No intersection.  This ray travels to infinity, so we color
                 // it according to the background color, which in this (simple) case

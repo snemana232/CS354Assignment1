@@ -110,6 +110,10 @@ public:
 
 		if (glm::length(vab) == 0.0 || glm::length(vac) == 0.0 ||
 		    glm::length(vcb) == 0.0)
+// Trace a top-level ray through pixel(i,j), i.e. normalized window coordinates (x,y),
+// through the projection plane, and out into the scene.  All we do is
+// enter the main ray-tracing method, getting things started by plugging
+// in an initial ray weight of (0.0,0.0,0.0) and an i
 			degen = true;
 		else {
 			degen  = false;

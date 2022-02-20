@@ -50,10 +50,28 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 		
 		for ( const auto& pLight : scene->getAllLights())
 		{
+		
 
 		glm::dvec3 attenuation = pLight->distanceAttenuation(r.at(i.getT())) * pLight->shadowAttenuation(r, r.at(i.getT()));
-		colorC += attenuation * (kd(i) + ks(i));
 
+		glm::dvec3 L = pLight->getDirection(r.at(i.getT())); 
+		double L_N = glm::dot(L, i.getN());
+		if (0.0 >= L_N) {
+			L_N = 0.0;
+		}
+		glm::dvec3 I_diffuse = kd(i)*L_N;
+
+		glm::dvec3 R = glm::normalize(glm::reflect(r.getDirection(), i.getN()));
+
+
+		glm::dvec3 V =  glm::normalize(scene->getCamera().getEye() - r.at(i.getT()));
+		double R_V = glm::dot(R, V);
+		if (R_V <= 0) {
+			R_V = 0.0;
+		}
+		glm::dvec3 I_specular = ks(i) * pow(R_V, shininess(i));
+		
+		colorC += attenuation * (I_specular + I_diffuse);
 		}	
 	return colorC;
 }
@@ -84,6 +102,8 @@ glm::dvec3 TextureMap::getMappedValue(const glm::dvec2& coord) const
 	// of the values.
 	double x = coord[0] * width;
 	double y = coord[1] * height;
+	if (x >= width) x = width - 1;
+	if (y >= height) y = height - 1;
 	return getPixelAt(x, y);
 }
 
@@ -93,10 +113,8 @@ glm::dvec3 TextureMap::getPixelAt(int x, int y) const
 	//
 	// In order to add texture mapping support to the
 	// raytracer, you need to implement this function.
-	uint8_t pos = ((y * width) * 3 + x * 3);
-	cout << pos << endl;
-	cout << data[pos] << endl;
-	return glm::dvec3(data[pos], data[pos + 1], data[pos + 2]);
+	int pos = ((y * width) + x) * 3;
+	return glm::dvec3(data[pos]/255.0, data[pos + 1]/255.0, data[pos + 2]/255.0);
 }
 
 glm::dvec3 MaterialParameter::value(const isect& is) const
