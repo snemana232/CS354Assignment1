@@ -45,32 +45,30 @@ glm::dvec3 Material::shade(Scene* scene, const ray& r, const isect& i) const
 	// 		.
 	// 		.
 	// }
+	//Phong shading - ColorC is intensity
+	//Ambient term
 	glm::dvec3 colorC = ke(i) + ka(i)*scene->ambient();
-
-		
+		//Contributions of lights
 		for ( const auto& pLight : scene->getAllLights())
 		{
-		
-
+		//I_i value
 		glm::dvec3 attenuation = pLight->distanceAttenuation(r.at(i.getT())) * pLight->shadowAttenuation(r, r.at(i.getT()));
-
+		//Diffuse Term
 		glm::dvec3 L = pLight->getDirection(r.at(i.getT())); 
 		double L_N = glm::dot(L, i.getN());
 		if (0.0 >= L_N) {
 			L_N = 0.0;
 		}
 		glm::dvec3 I_diffuse = kd(i)*L_N;
-
+		//Specular Term
 		glm::dvec3 R = glm::normalize(glm::reflect(r.getDirection(), i.getN()));
-
-
 		glm::dvec3 V =  glm::normalize(scene->getCamera().getEye() - r.at(i.getT()));
 		double R_V = glm::dot(R, V);
 		if (R_V <= 0) {
 			R_V = 0.0;
 		}
 		glm::dvec3 I_specular = ks(i) * pow(R_V, shininess(i));
-		
+		//Add in contributions
 		colorC += attenuation * (I_specular + I_diffuse);
 		}	
 	return colorC;
@@ -102,6 +100,8 @@ glm::dvec3 TextureMap::getMappedValue(const glm::dvec2& coord) const
 	// of the values.
 	double x = coord[0] * width;
 	double y = coord[1] * height;
+	//error checking to make sure out of bounds
+	//coordinates are not given
 	if (x >= width) x = width - 1;
 	if (y >= height) y = height - 1;
 	return getPixelAt(x, y);

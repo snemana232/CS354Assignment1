@@ -125,6 +125,8 @@ bool TrimeshFace::intersectLocal(ray& r, isect& i) const
 	double alpha = A_a / A;
 	double beta = A_b / A;
 	double gamma = A_c / A;
+	//check to make sure Q is in the triangle, floating point imprecision checked
+	//for with RAY_EPSILON
 	if (alpha >= 0.0 && beta >= 0.0 && gamma >= 0.0 && (alpha + beta + gamma <= 1.0 + RAY_EPSILON) && (alpha + beta + gamma >= 1.0 - RAY_EPSILON)) {
 		i.setObject(this);
 		//Normal Interpolation

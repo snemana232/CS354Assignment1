@@ -103,7 +103,7 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                                 colorC = colorC + k_r * traceRay(REF_RAY, thresh, depth - 1, t);
                                 double n_i;
                                 double n_t;
-                                if (glm::dot(-1.0 * r.getDirection(), i.getN()) > 0.0 ) {//entering object
+                                if (glm::dot(r.getDirection(), i.getN()) > 0.0 ) {//entering object
                                         n_i = 1.0;
                                         n_t = m.index(i);
                                 } else { //exiting object
@@ -111,8 +111,10 @@ glm::dvec3 RayTracer::traceRay(ray& r, const glm::dvec3& thresh, int depth, doub
                                         n_t = 1.0;                                        
                                 }
                                 double neta = (n_i/n_t);
+                                //refraction vector calculation
                                 glm::dvec3 refract = glm::normalize(glm::refract(-1.0 * r.getDirection(), i.getN(), neta));
                                 glm::dvec3 zero(0.0, 0.0, 0.0);
+                                //check that kt(i) is not the zero vector and TIR did not occur
                                 if (glm::greaterThan(m.kt(i), zero)[0] && !glm::all(glm::isnan(refract))) {
                                         ray REFRACT(Q,refract, glm::dvec3(1,1,1), ray::REFRACTION);
                                         colorC += m.kt(i) * traceRay(REFRACT, thresh, depth - 1, t);
@@ -243,13 +245,10 @@ void RayTracer::traceImage(int w, int h)
         // YOUR CODE HERE
         // FIXME: Start one or more threads for ray tracing
         //
-		//glm::dvec3 col(10, 20, 30);
+                //shoot rays through the image plane
 		for (int i = 0; i < w; i++) {
 			for (int j = 0; j < h; j++) {
 				glm::dvec3 S = tracePixel(i, j);
-				// glm::dvec3 P = scene->getCamera().getEye(); //a parameter to traceRay()
-				// glm::dvec3 d;
-
 			}
 		}
 
