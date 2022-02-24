@@ -382,7 +382,13 @@ memory
 glm/vec3.hpp
 -
 
+/u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp
+
 /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
+scene.h
+/u/snemana/CS354/proj1/ray/src/scene/scene.h
+bbox.h
+/u/snemana/CS354/proj1/ray/src/scene/bbox.h
 
 /u/snemana/CS354/proj1/ray/src/scene/light.cpp
 cmath

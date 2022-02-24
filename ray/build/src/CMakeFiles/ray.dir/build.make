@@ -369,9 +369,33 @@ src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o.provides: src/CMakeFiles/ray.dir/scen
 src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o.provides.build: src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o
 
 
+src/CMakeFiles/ray.dir/scene/kdTree.cpp.o: src/CMakeFiles/ray.dir/flags.make
+src/CMakeFiles/ray.dir/scene/kdTree.cpp.o: ../src/scene/kdTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/ray.dir/scene/kdTree.cpp.o"
+	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/kdTree.cpp.o -c /u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp
+
+src/CMakeFiles/ray.dir/scene/kdTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ray.dir/scene/kdTree.cpp.i"
+	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp > CMakeFiles/ray.dir/scene/kdTree.cpp.i
+
+src/CMakeFiles/ray.dir/scene/kdTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ray.dir/scene/kdTree.cpp.s"
+	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp -o CMakeFiles/ray.dir/scene/kdTree.cpp.s
+
+src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.requires
+
+src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.provides: src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/ray.dir/build.make src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.provides.build
+.PHONY : src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.provides
+
+src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.provides.build: src/CMakeFiles/ray.dir/scene/kdTree.cpp.o
+
+
 src/CMakeFiles/ray.dir/scene/light.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/light.cpp.o: ../src/scene/light.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/ray.dir/scene/light.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/ray.dir/scene/light.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/light.cpp.o -c /u/snemana/CS354/proj1/ray/src/scene/light.cpp
 
 src/CMakeFiles/ray.dir/scene/light.cpp.i: cmake_force
@@ -395,7 +419,7 @@ src/CMakeFiles/ray.dir/scene/light.cpp.o.provides.build: src/CMakeFiles/ray.dir/
 
 src/CMakeFiles/ray.dir/scene/material.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/material.cpp.o: ../src/scene/material.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/ray.dir/scene/material.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/ray.dir/scene/material.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/material.cpp.o -c /u/snemana/CS354/proj1/ray/src/scene/material.cpp
 
 src/CMakeFiles/ray.dir/scene/material.cpp.i: cmake_force
@@ -419,7 +443,7 @@ src/CMakeFiles/ray.dir/scene/material.cpp.o.provides.build: src/CMakeFiles/ray.d
 
 src/CMakeFiles/ray.dir/scene/ray.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/ray.cpp.o: ../src/scene/ray.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/ray.dir/scene/ray.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/ray.dir/scene/ray.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/ray.cpp.o -c /u/snemana/CS354/proj1/ray/src/scene/ray.cpp
 
 src/CMakeFiles/ray.dir/scene/ray.cpp.i: cmake_force
@@ -443,7 +467,7 @@ src/CMakeFiles/ray.dir/scene/ray.cpp.o.provides.build: src/CMakeFiles/ray.dir/sc
 
 src/CMakeFiles/ray.dir/scene/scene.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/scene/scene.cpp.o: ../src/scene/scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/ray.dir/scene/scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object src/CMakeFiles/ray.dir/scene/scene.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/scene/scene.cpp.o -c /u/snemana/CS354/proj1/ray/src/scene/scene.cpp
 
 src/CMakeFiles/ray.dir/scene/scene.cpp.i: cmake_force
@@ -467,7 +491,7 @@ src/CMakeFiles/ray.dir/scene/scene.cpp.o.provides.build: src/CMakeFiles/ray.dir/
 
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o: ../src/SceneObjects/Box.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Box.cpp.o -c /u/snemana/CS354/proj1/ray/src/SceneObjects/Box.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.i: cmake_force
@@ -491,7 +515,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o: ../src/SceneObjects/Cone.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o -c /u/snemana/CS354/proj1/ray/src/SceneObjects/Cone.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.i: cmake_force
@@ -515,7 +539,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o.provides.build: src/CMakeFiles/ra
 
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o: ../src/SceneObjects/Cylinder.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o -c /u/snemana/CS354/proj1/ray/src/SceneObjects/Cylinder.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.i: cmake_force
@@ -539,7 +563,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o.provides.build: src/CMakeFile
 
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o: ../src/SceneObjects/Sphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o -c /u/snemana/CS354/proj1/ray/src/SceneObjects/Sphere.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.i: cmake_force
@@ -563,7 +587,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o: ../src/SceneObjects/Square.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/Square.cpp.o -c /u/snemana/CS354/proj1/ray/src/SceneObjects/Square.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.i: cmake_force
@@ -587,7 +611,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o: ../src/SceneObjects/trimesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o -c /u/snemana/CS354/proj1/ray/src/SceneObjects/trimesh.cpp
 
 src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.i: cmake_force
@@ -611,7 +635,7 @@ src/CMakeFiles/ray.dir/SceneObjects/trimesh.cpp.o.provides.build: src/CMakeFiles
 
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o: ../src/ui/CommandLineUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o -c /u/snemana/CS354/proj1/ray/src/ui/CommandLineUI.cpp
 
 src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.i: cmake_force
@@ -635,7 +659,7 @@ src/CMakeFiles/ray.dir/ui/CommandLineUI.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o: ../src/ui/CubeMapChooser.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o -c /u/snemana/CS354/proj1/ray/src/ui/CubeMapChooser.cxx
 
 src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.i: cmake_force
@@ -659,7 +683,7 @@ src/CMakeFiles/ray.dir/ui/CubeMapChooser.cxx.o.provides.build: src/CMakeFiles/ra
 
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o: ../src/ui/GraphicalUI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o -c /u/snemana/CS354/proj1/ray/src/ui/GraphicalUI.cpp
 
 src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.i: cmake_force
@@ -683,7 +707,7 @@ src/CMakeFiles/ray.dir/ui/GraphicalUI.cpp.o.provides.build: src/CMakeFiles/ray.d
 
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o: ../src/ui/ModelerCamera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o -c /u/snemana/CS354/proj1/ray/src/ui/ModelerCamera.cpp
 
 src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.i: cmake_force
@@ -707,7 +731,7 @@ src/CMakeFiles/ray.dir/ui/ModelerCamera.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o: ../src/ui/TraceGLWindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o -c /u/snemana/CS354/proj1/ray/src/ui/TraceGLWindow.cpp
 
 src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.i: cmake_force
@@ -731,7 +755,7 @@ src/CMakeFiles/ray.dir/ui/TraceGLWindow.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.o: ../src/ui/TraceUI.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceUI.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/ray.dir/ui/TraceUI.cc.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/TraceUI.cc.o -c /u/snemana/CS354/proj1/ray/src/ui/TraceUI.cc
 
 src/CMakeFiles/ray.dir/ui/TraceUI.cc.i: cmake_force
@@ -755,7 +779,7 @@ src/CMakeFiles/ray.dir/ui/TraceUI.cc.o.provides.build: src/CMakeFiles/ray.dir/ui
 
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o: ../src/ui/debuggingView.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/debuggingView.cpp.o -c /u/snemana/CS354/proj1/ray/src/ui/debuggingView.cpp
 
 src/CMakeFiles/ray.dir/ui/debuggingView.cpp.i: cmake_force
@@ -779,7 +803,7 @@ src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o.provides.build: src/CMakeFiles/ray
 
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o: ../src/ui/debuggingWindow.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o -c /u/snemana/CS354/proj1/ray/src/ui/debuggingWindow.cxx
 
 src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.i: cmake_force
@@ -803,7 +827,7 @@ src/CMakeFiles/ray.dir/ui/debuggingWindow.cxx.o.provides.build: src/CMakeFiles/r
 
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.o: src/CMakeFiles/ray.dir/flags.make
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.o: ../src/ui/glObjects.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object src/CMakeFiles/ray.dir/ui/glObjects.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object src/CMakeFiles/ray.dir/ui/glObjects.cpp.o"
 	cd /u/snemana/CS354/proj1/ray/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ray.dir/ui/glObjects.cpp.o -c /u/snemana/CS354/proj1/ray/src/ui/glObjects.cpp
 
 src/CMakeFiles/ray.dir/ui/glObjects.cpp.i: cmake_force
@@ -840,6 +864,7 @@ ray_OBJECTS = \
 "CMakeFiles/ray.dir/scene/bbox.cc.o" \
 "CMakeFiles/ray.dir/scene/camera.cpp.o" \
 "CMakeFiles/ray.dir/scene/cubeMap.cpp.o" \
+"CMakeFiles/ray.dir/scene/kdTree.cpp.o" \
 "CMakeFiles/ray.dir/scene/light.cpp.o" \
 "CMakeFiles/ray.dir/scene/material.cpp.o" \
 "CMakeFiles/ray.dir/scene/ray.cpp.o" \
@@ -876,6 +901,7 @@ bin/ray: src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o
 bin/ray: src/CMakeFiles/ray.dir/scene/bbox.cc.o
 bin/ray: src/CMakeFiles/ray.dir/scene/camera.cpp.o
 bin/ray: src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o
+bin/ray: src/CMakeFiles/ray.dir/scene/kdTree.cpp.o
 bin/ray: src/CMakeFiles/ray.dir/scene/light.cpp.o
 bin/ray: src/CMakeFiles/ray.dir/scene/material.cpp.o
 bin/ray: src/CMakeFiles/ray.dir/scene/ray.cpp.o
@@ -913,7 +939,7 @@ bin/ray: /usr/lib/x86_64-linux-gnu/libz.so
 bin/ray: /usr/lib/x86_64-linux-gnu/libz.so
 bin/ray: /usr/lib/x86_64-linux-gnu/libGLU.so
 bin/ray: src/CMakeFiles/ray.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Linking CXX executable ../bin/ray"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/u/snemana/CS354/proj1/ray/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX executable ../bin/ray"
 	cd /u/snemana/CS354/proj1/ray/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ray.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -934,6 +960,7 @@ src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/parser/Tokenizer.cpp.o.r
 src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/scene/bbox.cc.o.requires
 src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/scene/camera.cpp.o.requires
 src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o.requires
+src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/scene/kdTree.cpp.o.requires
 src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/scene/light.cpp.o.requires
 src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/scene/material.cpp.o.requires
 src/CMakeFiles/ray.dir/requires: src/CMakeFiles/ray.dir/scene/ray.cpp.o.requires

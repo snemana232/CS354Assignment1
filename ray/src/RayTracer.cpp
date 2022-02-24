@@ -266,6 +266,38 @@ int RayTracer::aaImage()
         //
         // TIP: samples and aaThresh have been synchronized with TraceUI by
         //      RayTracer::traceSetup() function
+
+        //multiple samples per pixel by dividing the pixel into grid cells of equal area and tracing a ray out of the center of each grid cell
+        //You can call traceRay multiple times in which ever function you want. aaImage is there for if you're doing adaptive super sampling and want to refine the image progressively
+
+
+        aaThresh;
+        glm::dvec3 colors[buffer_width][buffer_height];
+        for (int i = 0; i < buffer_width; i++) {
+                for (int j = 0; j < buffer_height; j++) {
+                        glm::dvec3 color = getPixel(i, j);
+                        int diff = sqrt(aaThresh);
+                        for (int k = 0; k < diff; k++) {
+                                for (int h = 0; h < diff; h++) {
+                                        if (k == 0 && h == 0) break;
+                                        if (i + k >= buffer_width) break;
+                                        if (j + h >= buffer_height) break;
+                                        color += getPixel(i + k, j + h);   
+                                }
+                                
+                        }
+                        color /= aaThresh;
+                        //setPixel(i, j, color);
+                        colors[i][j] = color;
+                 }
+        }
+
+
+        for (int i = 0; i < buffer_width; i++) {
+                for (int j = 0; j < buffer_height; j++) {
+                        setPixel(i, j, colors[i][j]);
+                }
+        }
         return 0;
 }
 
