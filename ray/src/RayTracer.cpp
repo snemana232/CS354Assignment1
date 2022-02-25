@@ -40,7 +40,7 @@ glm::dvec3 RayTracer::trace(double x, double y)
         {
                 scene->clearIntersectCache();
         }
-
+        
         ray r(glm::dvec3(0,0,0), glm::dvec3(0,0,0), glm::dvec3(1,1,1), ray::VISIBILITY);
         scene->getCamera().rayThrough(x,y,r);
         double dummy;
@@ -244,10 +244,13 @@ void RayTracer::traceImage(int w, int h)
         traceSetup(w,h);
         // YOUR CODE HERE
         // FIXME: Start one or more threads for ray tracing
+        //also implement anti-aliasing!
         //
                 //shoot rays through the image plane
 		for (int i = 0; i < w; i++) {
 			for (int j = 0; j < h; j++) {
+
+
 				glm::dvec3 S = tracePixel(i, j);
 			}
 		}
@@ -271,33 +274,33 @@ int RayTracer::aaImage()
         //You can call traceRay multiple times in which ever function you want. aaImage is there for if you're doing adaptive super sampling and want to refine the image progressively
 
 
-        aaThresh;
-        glm::dvec3 colors[buffer_width][buffer_height];
-        for (int i = 0; i < buffer_width; i++) {
-                for (int j = 0; j < buffer_height; j++) {
-                        glm::dvec3 color = getPixel(i, j);
-                        int diff = sqrt(aaThresh);
-                        for (int k = 0; k < diff; k++) {
-                                for (int h = 0; h < diff; h++) {
-                                        if (k == 0 && h == 0) break;
-                                        if (i + k >= buffer_width) break;
-                                        if (j + h >= buffer_height) break;
-                                        color += getPixel(i + k, j + h);   
-                                }
+        // aaThresh;
+        // glm::dvec3 colors[buffer_width][buffer_height];
+        // for (int i = 0; i < buffer_width; i++) {
+        //         for (int j = 0; j < buffer_height; j++) {
+        //                 glm::dvec3 color = getPixel(i, j);
+        //                 int diff = sqrt(aaThresh);
+        //                 for (int k = 0; k < diff; k++) {
+        //                         for (int h = 0; h < diff; h++) {
+        //                                 if (k == 0 && h == 0) break;
+        //                                 if (i + k >= buffer_width) break;
+        //                                 if (j + h >= buffer_height) break;
+        //                                 color += getPixel(i + k, j + h);   
+        //                         }
                                 
-                        }
-                        color /= aaThresh;
-                        //setPixel(i, j, color);
-                        colors[i][j] = color;
-                 }
-        }
+        //                 }
+        //                 color /= aaThresh;
+        //                 //setPixel(i, j, color);
+        //                 colors[i][j] = color;
+        //          }
+        // }
 
 
-        for (int i = 0; i < buffer_width; i++) {
-                for (int j = 0; j < buffer_height; j++) {
-                        setPixel(i, j, colors[i][j]);
-                }
-        }
+        // for (int i = 0; i < buffer_width; i++) {
+        //         for (int j = 0; j < buffer_height; j++) {
+        //                 setPixel(i, j, colors[i][j]);
+        //         }
+        // }
         return 0;
 }
 

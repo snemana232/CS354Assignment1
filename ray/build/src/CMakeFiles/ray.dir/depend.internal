@@ -156,7 +156,13 @@ src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
  /u/snemana/CS354/proj1/ray/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/scene/kdTree.cpp.o
+ /u/snemana/CS354/proj1/ray/src/scene/bbox.h
+ /u/snemana/CS354/proj1/ray/src/scene/camera.h
  /u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
+ /u/snemana/CS354/proj1/ray/src/scene/material.h
+ /u/snemana/CS354/proj1/ray/src/scene/ray.h
+ /u/snemana/CS354/proj1/ray/src/scene/scene.h
 src/CMakeFiles/ray.dir/scene/light.cpp.o
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h

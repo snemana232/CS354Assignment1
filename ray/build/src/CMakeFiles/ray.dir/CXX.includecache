@@ -383,6 +383,10 @@ glm/vec3.hpp
 -
 
 /u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp
+kdTree.h
+/u/snemana/CS354/proj1/ray/src/scene/kdTree.h
+iostream
+-
 
 /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
 scene.h
