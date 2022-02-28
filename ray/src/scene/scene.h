@@ -20,6 +20,7 @@
 #include "camera.h"
 #include "material.h"
 #include "ray.h"
+#include "kdTree.h"
 
 #include <glm/geometric.hpp>
 #include <glm/mat3x3.hpp>
@@ -32,6 +33,7 @@ using std::unique_ptr;
 
 class Light;
 class Scene;
+class Node;
 
 template <typename Obj>
 class KdTree;
@@ -218,11 +220,12 @@ protected:
 
 class Scene {
 public:
+	std::vector<std::unique_ptr<Geometry>> objects;
 	typedef std::vector<Light*>::iterator liter;
 	typedef std::vector<Light*>::const_iterator cliter;
 	typedef std::vector<Geometry*>::iterator giter;
 	typedef std::vector<Geometry*>::const_iterator cgiter;
-
+	Node* kdTree; //this is the kdTree
 	TransformRoot transformRoot;
 
 	Scene();
@@ -236,8 +239,10 @@ public:
 	auto beginLights() const { return lights.begin(); }
 	auto endLights() const { return lights.end(); }
 	const auto& getAllLights() const { return lights; }
+	const auto& getAllObjects() const {return objects; }
 
 	auto beginObjects() const { return objects.cbegin(); }
+	//objects() const {return objects;}
 	auto endObjects() const { return objects.cend(); }
 
 	const Camera& getCamera() const { return camera; }
@@ -266,7 +271,6 @@ public:
 
 
 private:
-	std::vector<std::unique_ptr<Geometry>> objects;
 	std::vector<std::unique_ptr<Light>> lights;
 	Camera camera;
 
@@ -284,8 +288,8 @@ private:
 	// are exempt from this requirement.
 	BoundingBox sceneBounds;
 
-	KdTree<Geometry>* kdtree;
-
+	//KdTree<Geometry>* kdtree;
+	
 	mutable std::mutex intersectionCacheMutex;
 
 public:

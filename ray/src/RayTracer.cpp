@@ -6,6 +6,7 @@
 #include "scene/light.h"
 #include "scene/material.h"
 #include "scene/ray.h"
+#include "scene/kdTree.h"
 
 #include "parser/Tokenizer.h"
 #include "parser/Parser.h"
@@ -20,8 +21,10 @@
 #include <iostream>
 #include <fstream>
 
+
 using namespace std;
 extern TraceUI* traceUI;
+class Node;
 
 // Use this variable to decide if you want to print out
 // debugging messages.  Gets set in the "trace single ray" mode
@@ -54,17 +57,23 @@ glm::dvec3 RayTracer::tracePixel(int i, int j)
         glm::dvec3 col(0,0,0);
 
         if( ! sceneLoaded() ) return col;
-
-        double x = double(i)/double(buffer_width);
-        double y = double(j)/double(buffer_height);
-
-        unsigned char *pixel = buffer.data() + ( i + j * buffer_width ) * 3;
-        col = trace(x, y);
-
-        pixel[0] = (int)( 255.0 * col[0]);
-        pixel[1] = (int)( 255.0 * col[1]);
-        pixel[2] = (int)( 255.0 * col[2]);
-        return col;
+       double x = double(i)/double(buffer_width);
+       double y = double(j)/double(buffer_height);
+       unsigned char *pixel = buffer.data() + ( i + j * buffer_width ) * 3;
+ 
+       double x_incr = (1.0/double(buffer_width))/samples;
+       double y_incr = (1.0/double(buffer_height))/samples;
+       for (double w = 0; w < samples; w++) {
+               for (double h = 0; h < samples; h++) {
+                       col += trace(x + w*x_incr, y + h*y_incr);
+               }
+       }
+       col /= (double) (samples * samples);
+       //cout << samples << endl;
+       pixel[0] = (int)( 255.0 * col[0]);
+       pixel[1] = (int)( 255.0 * col[1]);
+       pixel[2] = (int)( 255.0 * col[2]);
+       return col;
 }
 
 #define VERBOSE 0
@@ -226,6 +235,20 @@ void RayTracer::traceSetup(int w, int h)
 
         // YOUR CODE HERE
         // FIXME: Additional initializations
+
+        //kdTree support
+        kd_on = traceUI->kdSwitch();
+        depth = traceUI->getMaxDepth();
+        leaf_size = traceUI->getLeafSize();
+        std::vector<Geometry *> objects;
+        for ( std::vector<Geometry*>::const_iterator obj = objects.begin(); obj != objects.end(); obj++ ) {     
+                objects.push_back(*obj);
+        }
+        //if the kdTree option enabled, build the tree
+        if (kd_on) {
+                scene->kdTree = new Node();
+                scene->kdTree->buildTree(objects, scene->bounds(), depth, depth, leaf_size);
+        }
 }
 
 /*
@@ -247,6 +270,16 @@ void RayTracer::traceImage(int w, int h)
         //also implement anti-aliasing!
         //
                 //shoot rays through the image plane
+        // if (kd_on) {
+        //         while (scene->kdTree != NULL) {
+        //                 if (!scene->kdTree->findIntersection(r, 0, 1000)) {
+        //                         return glm::dvec3 ret(0.0, 0.0, 0.0);
+        //                 }  
+        //         }
+
+        // }
+
+
 		for (int i = 0; i < w; i++) {
 			for (int j = 0; j < h; j++) {
 

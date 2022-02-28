@@ -49,7 +49,7 @@ public:
 	void addMaterial(Material *m);
 	void addNormal(const glm::dvec3 &);
 	bool addFace(int a, int b, int c);
-
+	std::vector<TrimeshFace *> getFaces() {return faces; }
 	const char *doubleCheck();
 
 	void generateNormals();

@@ -65,6 +65,9 @@ private:
 	double thresh;
 	double aaThresh;
 	int samples;
+	int leaf_size;
+	int depth;
+	bool kd_on;	
 	std::unique_ptr<Scene> scene;
 
 	bool m_bBufferReady;
