@@ -684,7 +684,16 @@ void Parser::parseTrimesh(Scene* scene, TransformNode* transform, const Material
         if ((error = tmesh->doubleCheck()))
           throw ParserException(error);
 
-        scene->add( tmesh );
+        if (traceUI->kdSwitch()) {
+          std::vector<TrimeshFace *> Faces = tmesh->getFaces();
+          for ( std::vector<TrimeshFace*>::const_iterator face = Faces.begin(); face != Faces.end(); face++ ) {
+            scene->add(*face);
+          }
+        } else {
+          scene->add( tmesh );
+        }
+        
+
         return;
       }
 
