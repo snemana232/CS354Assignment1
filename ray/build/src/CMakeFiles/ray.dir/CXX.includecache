@@ -15,6 +15,8 @@ scene/material.h
 /u/snemana/CS354/proj1/ray/src/scene/material.h
 scene/ray.h
 /u/snemana/CS354/proj1/ray/src/scene/ray.h
+scene/kdTree.h
+/u/snemana/CS354/proj1/ray/src/scene/kdTree.h
 parser/Tokenizer.h
 /u/snemana/CS354/proj1/ray/src/parser/Tokenizer.h
 parser/Parser.h
@@ -383,16 +385,14 @@ glm/vec3.hpp
 -
 
 /u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp
-kdTree.h
-/u/snemana/CS354/proj1/ray/src/scene/kdTree.h
-iostream
--
 
 /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
 scene.h
 /u/snemana/CS354/proj1/ray/src/scene/scene.h
 bbox.h
 /u/snemana/CS354/proj1/ray/src/scene/bbox.h
+iostream
+-
 
 /u/snemana/CS354/proj1/ray/src/scene/light.cpp
 cmath
@@ -505,6 +505,8 @@ material.h
 /u/snemana/CS354/proj1/ray/src/scene/material.h
 ray.h
 /u/snemana/CS354/proj1/ray/src/scene/ray.h
+kdTree.h
+/u/snemana/CS354/proj1/ray/src/scene/kdTree.h
 glm/geometric.hpp
 -
 glm/mat3x3.hpp

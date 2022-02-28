@@ -29,6 +29,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Box.cpp.o
  /u/snemana/CS354/proj1/ray/src/SceneObjects/Box.h
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
  /u/snemana/CS354/proj1/ray/src/scene/scene.h
@@ -37,6 +38,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Cone.cpp.o
  /u/snemana/CS354/proj1/ray/src/SceneObjects/Cone.h
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
  /u/snemana/CS354/proj1/ray/src/scene/scene.h
@@ -45,6 +47,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Cylinder.cpp.o
  /u/snemana/CS354/proj1/ray/src/SceneObjects/Cylinder.h
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
  /u/snemana/CS354/proj1/ray/src/scene/scene.h
@@ -53,6 +56,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Sphere.cpp.o
  /u/snemana/CS354/proj1/ray/src/SceneObjects/Sphere.h
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
  /u/snemana/CS354/proj1/ray/src/scene/scene.h
@@ -61,6 +65,7 @@ src/CMakeFiles/ray.dir/SceneObjects/Square.cpp.o
  /u/snemana/CS354/proj1/ray/src/SceneObjects/Square.h
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
  /u/snemana/CS354/proj1/ray/src/scene/scene.h
@@ -156,16 +161,11 @@ src/CMakeFiles/ray.dir/scene/cubeMap.cpp.o
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
  /u/snemana/CS354/proj1/ray/src/ui/TraceUI.h
 src/CMakeFiles/ray.dir/scene/kdTree.cpp.o
- /u/snemana/CS354/proj1/ray/src/scene/bbox.h
- /u/snemana/CS354/proj1/ray/src/scene/camera.h
  /u/snemana/CS354/proj1/ray/src/scene/kdTree.cpp
- /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
- /u/snemana/CS354/proj1/ray/src/scene/material.h
- /u/snemana/CS354/proj1/ray/src/scene/ray.h
- /u/snemana/CS354/proj1/ray/src/scene/scene.h
 src/CMakeFiles/ray.dir/scene/light.cpp.o
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/light.cpp
  /u/snemana/CS354/proj1/ray/src/scene/light.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
@@ -176,6 +176,7 @@ src/CMakeFiles/ray.dir/scene/material.cpp.o
  /u/snemana/CS354/proj1/ray/src/fileio/images.h
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/light.h
  /u/snemana/CS354/proj1/ray/src/scene/material.cpp
  /u/snemana/CS354/proj1/ray/src/scene/material.h
@@ -185,6 +186,7 @@ src/CMakeFiles/ray.dir/scene/material.cpp.o
 src/CMakeFiles/ray.dir/scene/ray.cpp.o
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
  /u/snemana/CS354/proj1/ray/src/scene/ray.cpp
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
@@ -261,6 +263,7 @@ src/CMakeFiles/ray.dir/ui/debuggingView.cpp.o
  /u/snemana/CS354/proj1/ray/src/scene/bbox.h
  /u/snemana/CS354/proj1/ray/src/scene/camera.h
  /u/snemana/CS354/proj1/ray/src/scene/cubeMap.h
+ /u/snemana/CS354/proj1/ray/src/scene/kdTree.h
  /u/snemana/CS354/proj1/ray/src/scene/light.h
  /u/snemana/CS354/proj1/ray/src/scene/material.h
  /u/snemana/CS354/proj1/ray/src/scene/ray.h
